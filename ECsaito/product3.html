@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品詳細</title>
+    <style>
+        /* スタイルはここに記述 */
+        body {
+            background-color: #f2f5f7; /* 背景を設定 */
+            color: #211e1e; /* テキストの色を設定 */
+            font-family: Arial, sans-serif; /* フォントをArialに設定 */
+            text-align: center; /* 中央ぞろえに設定 */
+        }
+
+        h2 {
+            color: #211e1e; /* 見出しの色を白に設定 */
+            text-align: left; /* タイトルを左寄せに設定 */
+            font-size: 34px; /* フォントサイズをに設定 */
+        }
+
+        p {text-align: center; /* 中央ぞろえに設定 */
+            font-weight: bold;
+            font-size: 20px; /* フォントサイズをに設定 */
+        }
+
+        .button-container {
+            text-align: right; /* ボタンを右寄せに設定 */
+            position: fixed;
+            right: 20px;
+         bottom: 20px;
+        }
+
+        .button{
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #f1990a;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            font-size: 20px; /* フォントサイズを20pxに設定 */
+        }
+
+        .button:hover {
+            background-color: #f1990a;
+        }
+
+        
+        .rating {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+    margin-right: 10px;
+    margin-top: -10px;
+    }
+
+    .review .rating .star {
+    font-size: 20px; /* 好みのサイズに調整してください */
+}
+
+
+
+        .rating span {
+            margin-right: 5px;
+            font-size: 18px;
+        }
+
+        .rating span.star {
+    margin-right: 5px;
+    font-size: 14px;
+    color: gold; /* 星の絵文字を金色に設定 */
+}
+
+        .price {
+    font-size: 28px; /* 値段のフォントサイズを24pxに設定 */
+    margin-top: 10px; /* 適切なマージンを設定 */
+    text-align: center;
+    color: black; /* 値段のテキストカラーを黒に設定 */
+        }
+
+        .profile-image {
+    width: 50px; /* プロフィール画像の幅を設定 */
+    height: 50px; /* プロフィール画像の高さを設定 */
+    border-radius: 50%; /* 画像を丸くするための設定 */
+    margin-right: 10px; /* 適切なマージンを設定 */
+    margin-top: 20px; /* プロフィール画像の位置を上に移動 */
+}
+
+.review {
+    margin-bottom: 20px;
+    display: flex;
+    min-height: 100px;
+}
+
+.user-name {
+    font-weight: bold;
+    font-size: 16px;
+    margin-right: 10px;
+    font-weight: normal; 
+    margin-top: 30px;
+}
+
+.reviews {
+    margin-top: 20px;
+}
+
+.comment {
+    font-style: italic;
+    font-size: 16px;
+    text-align: left;
+    font-weight: normal; 
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.review-title {
+    font-weight: bold;
+    font-size: 14px;
+    margin-left: 10px;
+    margin-top: 30px;
+}
+
+.rating-and-date {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.post-date {
+    font-style: italic;
+    font-size: 12px;
+    color: #888;
+    margin-left: 10px;
+    margin-bottom: 0;
+    margin-top: -10px;
+}
+
+.productinfo {
+    font-style: italic;
+    font-size: 18px;
+    text-align: left;
+    font-weight: normal; 
+}
+
+.producttitle {
+    margin-top: 50px; /* 余白を追加 */
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 10px;
+    text-align: left;
+}
+
+.firstrating {
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.firstrating-number {
+    font-size: 28px;
+    margin-right: 10px;
+}
+
+.main-star {
+    margin-right: 5px;
+    font-size: 28px; 
+    color: gold;
+}
+
+.castamer-title {
+    margin-top: 50px; /* 余白を追加 */
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 10px;
+    text-align: left;
+}
+
+.product {
+    margin-bottom: 100px; /* 適切な余白を設定 */
+}
+
+.masage {
+    margin-top: 50px; /* 余白を追加 */
+}
+
+    </style>
+</head>
+<body>
+    <section class="product">
+        <h2>商品詳細</h2>
+        <p>【購入する】を押すと決済情報確認画面へと移行します。</p>
+        <p class="masage">ドライヤー【2023年進化モデル】大風量 速乾 超軽量 人気 ランキング 1300W 折り畳み式 携帯ドライヤー マイナスイオン 3段階風量 小型 ノズル付き 過熱防止機能あり 家庭用/サロン用/旅行用 PSE認証済み</p>
+        <p class="firstrating">
+            <span class="main-star">&#9733;</span>
+            <span class="main-star">&#9733;</span>
+            <span class="main-star">&#9733;</span>
+            <span class="main-star">&#9733;</span>
+            <span class="main-star">&#9733;</span>
+            <span class="firstrating-number">4.8</span>
+        </p>
+        <p id="originalPrice" class="price">¥13600</p>
+<p id="salePrice" class="price"></p>
+        <p>
+            <img src="product3.jpg" alt="商品3" width="500" height="300"> 
+        </p> 
+        <p class="producttitle">この商品について</p>
+        <p class="productinfo">・【あっという間に乾く1300W大風量】本ヘアドライヤーは強力1300Wモータが搭載されるので、気流は2.26m³/min、最大14.3m/sの風量となります1800Wのヘアドライヤーと比べると、大風量がある一方、電気の消費量が低くて、電気代が節約できます冷風・温風・熱風③モード有り、お好みに合わせて切り替えることができます さらに冷風スイッチも搭載しているのでスイッチを押すと素早く温風を冷風に切り替えます</p>
+        <p class="productinfo">・【57℃恒温ヘアケア過熱保護装置付き】57℃恒温デザインが過熱による髪の水分流失や損傷を減らし、髪の艶を守りますまた、ドライヤーは温度過昇防止装置が搭載されており、57℃恒温ヘアケアを守れ、本体が危険な温度まで上昇すると自動的に電源を中断することになります</p>
+        <p class="productinfo">・【折りたたみ式プレゼントにも最適】本ヘアドライヤーは配線を含まず僅か350gの重さで、多数のドライヤーよりも軽いため、腕への負担を軽減し、ご使用中に腕が疲れることがありませんコンパクトと折りたた式なので、収納や持ち運びにも便利ですプレゼントや旅行や出張など様々なシーンで大活躍の軽いドライヤーです</p>
+
+        <p class="castamer-title">カスタマーレビュー(356件)</p>
+
+        <div class="review">
+            <img src="profile1.jpg" alt="プロフィール画像" class="profile-image">
+            <div>
+                <div class="user-info">
+                    <p class="user-name">ひかる</p>
+                    <p class="review-title">プレゼント用に</p>
+                </div>
+                <div class="rating-and-date">
+                    <div class="rating">
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9734;</span>
+                    </div>
+                    <p class="post-date">2023年11月2日に投稿</p>
+                </div>
+                <p class="comment">軽めで風速強いものを探しました。
+                    プレゼント用なので、箱の上からしかわかりませんが、意外と重いような気がします。</p>
+            </div>
+        </div>
+
+        <div class="review">
+            <img src="profile1.jpg" alt="プロフィール画像" class="profile-image">
+            <div>
+                <div class="user-info">
+                    <p class="user-name">nao</p>
+                    <p class="review-title">good!</p>
+                </div>
+                <div class="rating-and-date">
+                    <div class="rating">
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                    </div>
+                    <p class="post-date">2023年11月2日に投稿</p>
+                </div>
+                <p class="comment">コンパクトなのにハイパワーです</p>
+            </div>
+        </div>
+
+        <div class="review">
+            <img src="profile1.jpg" alt="プロフィール画像" class="profile-image">
+            <div>
+                <div class="user-info">
+                    <p class="user-name">吉岡 里帆</p>
+                    <p class="review-title">しっかりした商品です。</p>
+                </div>
+                <div class="rating-and-date">
+                    <div class="rating">
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                    </div>
+                    <p class="post-date">2023年11月2日に投稿</p>
+                </div>
+                <p class="comment">大変軽く、コストパフォーマンスも良い商品です</p>
+            </div>
+        </div>
+
+        <div class="review">
+            <img src="profile1.jpg" alt="プロフィール画像" class="profile-image">
+            <div>
+                <div class="user-info">
+                    <p class="user-name">カルロス</p>
+                    <p class="review-title">良かったです</p>
+                </div>
+                <div class="rating-and-date">
+                    <div class="rating">
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                    </div>
+                    <p class="post-date">2023年11月2日に投稿</p>
+                </div>
+                <p class="comment">ちょうどウチのドライヤーが壊れてこちらの商品を選んで使ってみた感想としては見た目のわりに風量が案外強くて乾きも早くて良かったです！</p>
+            </div>
+        </div>
+
+        <div class="review">
+            <img src="profile2.jpg" alt="プロフィール画像" class="profile-image">
+            <div>
+                <div class="user-info">
+                    <p class="user-name">syaan</p>
+                    <p class="review-title">レビューに期待しすぎた</p>
+                </div>
+                <div class="rating-and-date">
+                    <div class="rating">
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9734;</span>
+                        <span class="star">&#9734;</span>
+                    </div>
+                    <p class="post-date">2023年11月6日に投稿</p>
+                </div>
+                <p class="comment">風量重視派です。
+                    レビューで風量満足の方が多く購入しましたが、私には普通に感じました
+                    弱くて困る訳ではないけど風量重視派さんには向かない。
+                    重量は軽い方だと思いますがロングヘアーはどんなドライヤー使っても腕疲れます</p>
+            </div>
+        </div>
+
+        <div class="button-container"> 
+         <a href="checkout2.html" class="button">購入する</a> <!-- 購入ボタン -->
+        </div>
+    </section>
+
+    <script>
+     // 定価とセール価格を定義
+const originalPrice = 13600;
+const salePrice = 3680;
+
+// 定価の表示を赤色の斜め線で表示
+const originalPriceElement = document.getElementById('originalPrice');
+originalPriceElement.style.textDecoration = 'line-through';
+originalPriceElement.style.color = 'black';
+
+// 割引率を計算して表示
+const discountPercentage = ((originalPrice - salePrice) / originalPrice) * 100;
+const salePriceElement = document.getElementById('salePrice');
+salePriceElement.textContent = `セール価格: ¥${salePrice} (${discountPercentage.toFixed(0)}% OFF)`;
+
+    </script>
+    
+</body>
+</html>

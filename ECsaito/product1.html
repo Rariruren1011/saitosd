@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品詳細</title>
+    <style>
+        /* スタイルはここに記述 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: auto; /* 上下左右のマージンを自動で設定 */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        position: relative;
+        top: 50%; /* 上端を中央に配置 */
+        transform: translateY(-50%); /* 自身の高さの半分だけ上に移動 */
+        text-align: center; /* テキストを中央に配置する */
+    }
+
+    .modal-content p:first-of-type {
+        font-size: 35px;
+    }
+
+    .modal-content .button-container {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 2;
+}
+
+    .attention-text {
+        color: red;
+        font-weight: bold;
+        font-size: 28px;
+    }
+
+        .close {
+            color: #010000;
+            float: right;
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        body {
+            background-color: #f2f5f7; /* 背景を設定 */
+            color: #211e1e; /* テキストの色を設定 */
+            font-family: Arial, sans-serif; /* フォントをArialに設定 */
+            text-align: center; /* 中央ぞろえに設定 */
+        }
+
+        h2 {
+            color: #211e1e; /* 見出しの色を白に設定 */
+            text-align: left; /* タイトルを左寄せに設定 */
+            font-size: 34px; /* フォントサイズをに設定 */
+        }
+
+        p {text-align: center; /* 中央ぞろえに設定 */
+            font-weight: bold;
+            font-size: 20px; /* フォントサイズをに設定 */
+        }
+
+        .button-container {
+            text-align: right; /* ボタンを右寄せに設定 */
+        }
+
+        .button{
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #f1990a;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            font-size: 20px; /* フォントサイズを20pxに設定 */
+        }
+
+        .button-container {
+            text-align: right; /* ボタンを右寄せに設定 */
+            position: fixed;
+            right: 20px;
+         bottom: 20px;
+         z-index: 1; /* ボタンが最前面に表示されるようにする */
+        }
+
+        .modal-content-button-container {
+    margin-top: 20px;
+    text-align: right;
+        }
+
+        .button:hover {
+            background-color: #f1990a;
+        }
+
+         .rating {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+    margin-right: 10px;
+    margin-top: -10px;
+    }
+
+    .review .rating .star {
+    font-size: 20px; /* 好みのサイズに調整してください */
+}
+
+        .rating span {
+            margin-right: 5px;
+            font-size: 12px;
+        }
+
+        .fa-star {
+            color: gold;
+        }
+
+        .rating span.star {
+    margin-right: 5px;
+    font-size: 14px;
+    color: gold; /* 星の絵文字を金色に設定 */
+}
+
+        .price {
+    font-size: 28px; /* 値段のフォントサイズを24pxに設定 */
+    margin-top: 10px; /* 適切なマージンを設定 */
+    text-align: center;
+}
+
+.profile-image {
+    width: 50px; /* プロフィール画像の幅を設定 */
+    height: 50px; /* プロフィール画像の高さを設定 */
+    border-radius: 50%; /* 画像を丸くするための設定 */
+    margin-right: 10px; /* 適切なマージンを設定 */
+    margin-top: 20px; /* プロフィール画像の位置を上に移動 */
+}
+
+.review {
+    margin-bottom: 20px;
+    display: flex;
+    min-height: 100px;
+}
+
+.user-name {
+    font-weight: bold;
+    font-size: 16px;
+    margin-right: 10px;
+    font-weight: normal; 
+    margin-top: 30px;
+}
+
+.reviews {
+    margin-top: 20px;
+}
+
+.comment {
+    font-style: italic;
+    font-size: 16px;
+    text-align: left;
+    font-weight: normal; 
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.review-title {
+    font-weight: bold;
+    font-size: 14px;
+    margin-left: 10px;
+    margin-top: 30px;
+}
+
+.rating-and-date {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.post-date {
+    font-style: italic;
+    font-size: 12px;
+    color: #888;
+    margin-left: 10px;
+    margin-bottom: 0;
+    margin-top: -10px;
+}
+
+.productinfo {
+    font-style: italic;
+    font-size: 18px;
+    text-align: left;
+    font-weight: normal; 
+}
+
+.producttitle {
+    margin-top: 50px; /* 余白を追加 */
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 10px;
+    text-align: left;
+}
+
+.firstrating {
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.firstrating-number {
+    font-size: 28px;
+    margin-right: 10px;
+}
+
+.main-star {
+    margin-right: 5px;
+    font-size: 28px; 
+    color: gold;
+}
+
+.castamer-title {
+    margin-top: 50px; /* 余白を追加 */
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 10px;
+    text-align: left;
+}
+
+.product {
+    margin-bottom: 100px; /* 適切な余白を設定 */
+}
+
+.masage {
+    margin-top: 50px; /* 余白を追加 */
+}
+
+    </style>
+</head>
+<body>
+    <section class="product">
+        <h2>商品詳細</h2>
+        <p>【購入する】を押すと決済情報確認画面へと移行します。</p>
+        <p class="masage">2023新型 Bluetooth5.3技術】 ワイヤレスイヤホン ブルートゥース イヤホン 小型軽量 Hi-Fi 最大36時間再生 CVC8.0/ENC/AACノイズキャンセリング 瞬時自動ペアリング Type-C充電 片耳/両耳 Siri対応 IPX7防水 タッチ式音量調整 片耳/両耳 iPhone/Android対応</p>
+        <p class="firstrating">
+            <span class="main-star">&#9733;</span>
+            <span class="main-star">&#9733;</span>
+            <span class="main-star">&#9733;</span>
+            <span class="main-star">&#9733;</span>
+            <span class="main-star">&#9734;</span>
+            <span class="firstrating-number">4.1</span>
+        </p>
+        <p class="price">¥24,999</p> <!-- 例: 値段を表示 -->
+        <p>
+            <img src="product1.jpg" alt="商品1" width="500" height="300"> 
+        </p> 
+        <p class="producttitle">この商品について</p>
+        <p class="productinfo">・最新のBluetooth 5.3と高忠実な音質:当社のワイヤレスイヤホンは先進的なBluetooth 5.3技術とアンテナ技術を採用し、15mのBluetooth範囲で高速かつ安定した伝送を提供します。内蔵の高音質オーディオチップが音楽の細部まで捉え、鮮明な高音と適度な低音のある豊かなサウンドを実現します。ENCノイズキャンセリング技術により、周囲の騒音やエコーを低減し、クリアなBluetoothイヤホンHi-Fiサウンドを実現します。</p>
+        <p class="productinfo">・わずか32gの軽さ、携常便利:ワイヤレスヘッドホン全体でも32gと、小型で繊細、手のひらやポケットに収まるサイズで、外出先でもバッグに入れて簡単に持ち運べ、全く邪魔になりません。人間工学に基づいて設計されたワイヤレスイヤホンは、耳にしっかりとフィットし、簡単に落ちることはありません。</p>
+        <p class="productinfo">・防水性能と優れたアフターサービス:防水等級IPX7に準拠したフル防水仕様により、水に対して極めて強い設計。外出中、突然雨に降られてもイヤホンが濡れても壊れる心配はありません。ジョギング、ランニング、ヨガ、スポーツ、ジム、サイクリングなどの使用も相性抜群。さらに、商品のご購入から永久保証がついております。</p>
+        
+
+<p class="castamer-title">カスタマーレビュー(86件)</p>
+
+        <div class="review">
+            <img src="profile1.jpg" alt="プロフィール画像" class="profile-image">
+            <div>
+                <div class="user-info">
+                    <p class="user-name">takuya</p>
+                    <p class="review-title">すごく良い</p>
+                </div>
+                <div class="rating-and-date">
+                    <div class="rating">
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                    </div>
+                    <p class="post-date">2023年11月3日に投稿</p>
+                </div>
+                <p class="comment">お値段以上の品でした！とても良い商品です！</p>
+            </div>
+        </div>
+        
+
+        <div class="review">
+            <img src="profile1.jpg" alt="プロフィール画像" class="profile-image">
+            <div>
+                <div class="user-info">
+                    <p class="user-name">購入者です</p>
+                    <p class="review-title">初めて使いました</p>
+                </div>
+                <div class="rating-and-date">
+                    <div class="rating">
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                    </div>
+                    <p class="post-date">2023年11月1日に投稿</p>
+                </div>
+                <p class="comment">旅行へ行くのでイヤホンが必要だと思い購入しました。今日頼んで今日届きました。早速､試してみました。日本語の説明書は助かりました。電話も問題なくできたので一安心です。もちろんペアリングも簡単でした。再度ペアリングする方法もYouTubeで確認できました。
+                    今後が楽しみです。</p>
+            </div>
+        </div>
+        
+
+        
+        <div class="review">
+            <img src="profile1.jpg" alt="プロフィール画像" class="profile-image">
+            <div>
+                <div class="user-info">
+                    <p class="user-name">noname</p>
+                    <p class="review-title">値段の割には良い音出ます。</p>
+                </div>
+                <div class="rating-and-date">
+                    <div class="rating">
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9734;</span>
+                    </div>
+                    <p class="post-date">2023年10月29日に投稿</p>
+                </div>
+                <p class="comment">
+                    音にはあまり期待してませんでしたが、使ってみると気に入りました。すぐに設定できたし配送も早いし最高です。</p>
+            </div>
+        </div>
+
+        <div class="review">
+            <img src="profile1.jpg" alt="プロフィール画像" class="profile-image">
+            <div>
+                <div class="user-info">
+                    <p class="user-name">あ</p>
+                    <p class="review-title">よかった</p>
+                </div>
+                <div class="rating-and-date">
+                    <div class="rating">
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                    </div>
+                    <p class="post-date">2023年10月29日に投稿</p>
+                </div>
+                <p class="comment">よかった</p>
+            </div>
+        </div>
+
+        <div class="review">
+            <img src="profile2.jpg" alt="プロフィール画像" class="profile-image">
+            <div>
+                <div class="user-info">
+                    <p class="user-name">syaan</p>
+                    <p class="review-title">汚れ</p>
+                </div>
+                <div class="rating-and-date">
+                    <div class="rating">
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9734;</span>
+                        <span class="star">&#9734;</span>
+                        <span class="star">&#9734;</span>
+                    </div>
+                    <p class="post-date">2023年10月25日に投稿</p>
+                </div>
+                <p class="comment">本体にベトベトとした汚れが付着していた。肌に直接触れるものなのにこれは残念。
+                    音自体は普通に聞こえてます。可もなく不可もなくな音質。</p>
+            </div>
+        </div>
+        
+        <div class="button-container">
+             <a href="#" class="button" onclick="openModal()">購入する</a> <!-- 購入ボタン -->
+             </div>
+    </section>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p class="attention-text">注意！！</p>
+            <img src="ararm1.png" alt="注意喚起1の画像" width="860" height="450">
+            <div class="modal-content-button-container">
+                <a href="checkout1.html" class="button">決済情報確認画面へ</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "block";
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+    </script>
+</body>
+</html>

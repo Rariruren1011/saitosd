@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品詳細</title>
+    <style>
+        /* スタイルはここに記述 */
+        body {
+            background-color: #f2f5f7; /* 背景を設定 */
+            color: #211e1e; /* テキストの色を設定 */
+            font-family: Arial, sans-serif; /* フォントをArialに設定 */
+            text-align: center; /* 中央ぞろえに設定 */
+        }
+
+        h2 {
+            color: #211e1e; /* 見出しの色を白に設定 */
+            text-align: left; /* タイトルを左寄せに設定 */
+            font-size: 34px; /* フォントサイズをに設定 */
+        }
+
+        p {text-align: center; /* 中央ぞろえに設定 */
+            font-weight: bold;
+            font-size: 20px; /* フォントサイズをに設定 */
+        }
+
+        .button-container {
+            text-align: right; /* ボタンを右寄せに設定 */
+            position: fixed;
+            right: 20px;
+         bottom: 20px;
+        }
+
+        .button{
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #f1990a;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            font-size: 20px; /* フォントサイズを20pxに設定 */
+        }
+
+        .button:hover {
+            background-color: #f1990a;
+        }
+
+        
+        .rating {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+    margin-right: 10px;
+    margin-top: -10px;
+    }
+
+    .review .rating .star {
+    font-size: 20px; /* 好みのサイズに調整してください */
+}
+
+        .rating span {
+            margin-right: 5px;
+            font-size: 18px;
+        }
+
+        .fa-star {
+            color: gold;
+        }
+
+        .rating span.star {
+    margin-right: 5px;
+    font-size: 14px;
+    color: gold; /* 星の絵文字を金色に設定 */
+}
+
+        .price {
+    font-size: 28px; /* 値段のフォントサイズを24pxに設定 */
+    margin-top: 10px; /* 適切なマージンを設定 */
+    text-align: center;
+        }
+
+        .profile-image {
+    width: 50px; /* プロフィール画像の幅を設定 */
+    height: 50px; /* プロフィール画像の高さを設定 */
+    border-radius: 50%; /* 画像を丸くするための設定 */
+    margin-right: 10px; /* 適切なマージンを設定 */
+    margin-top: 20px; /* プロフィール画像の位置を上に移動 */
+}
+
+.review {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: flex-start; /* 上端揃えに設定 */
+    min-height: 100px;
+}
+
+.user-name {
+    font-weight: bold;
+    font-size: 16px;
+    margin-right: 10px;
+    font-weight: normal; 
+    margin-top: 30px;
+}
+
+.reviews {
+    margin-top: 20px;
+}
+
+.comment {
+    font-style: italic;
+    font-size: 16px;
+    text-align: left;
+    font-weight: normal; 
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.review-title {
+    font-weight: bold;
+    font-size: 14px;
+    margin-left: 10px;
+    margin-top: 30px;
+}
+
+.rating-and-date {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.post-date {
+    font-style: italic;
+    font-size: 12px;
+    color: #888;
+    margin-left: 10px;
+    margin-bottom: 0;
+    margin-top: -10px;
+}
+
+.productinfo {
+    font-style: italic;
+    font-size: 18px;
+    text-align: left;
+    font-weight: normal; 
+}
+
+.producttitle {
+    margin-top: 50px; /* 余白を追加 */
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 10px;
+    text-align: left;
+}
+
+.firstrating {
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.firstrating-number {
+    font-size: 28px;
+    margin-right: 10px;
+}
+
+.main-star {
+    margin-right: 5px;
+    font-size: 28px; 
+    color: gold;
+}
+
+.castamer-title {
+    margin-top: 50px; /* 余白を追加 */
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 10px;
+    text-align: left;
+}
+
+.product {
+    margin-bottom: 100px; /* 適切な余白を設定 */
+}
+
+.masage {
+    margin-top: 50px; /* 余白を追加 */
+}
+
+    </style>
+</head>
+<body>
+    <section class="product">
+        <h2>商品詳細</h2>
+        <p>【購入する】を押すと決済情報確認画面へと移行します。</p>
+        <p class="masage">空気清浄機 【2023新型・強力浄化】18畳対応 軽量 小型 花粉対策 卓上 hepaフィルター 除菌 脱臭 集じん 静音 お手入れやすい タイマー機能 省エネ ナイトライト付き アロマ対応 18畳 タバコ カビ ほこり PM2.5 風量3段階調節 睡眠モード サーキュレーター 空気循環</p>
+        <p class="firstrating">
+            <span class="main-star">&#9733;</span>
+            <span class="main-star">&#9733;</span>
+            <span class="main-star">&#9733;</span>
+            <span class="main-star">&#9733;</span>
+            <span class="main-star">&#9734;</span>
+            <span class="firstrating-number">4.5</span>
+        </p>
+        <p class="price">¥3,599</p> <!-- 例: 値段を表示 -->
+        <p>
+            <img src="product4.jpg" alt="商品4" width="500" height="300"> 
+        </p> 
+        <p class="producttitle">この商品について</p>
+        <p class="productinfo">・🌿【大風量で省エネ】約18畳をカバーし、寮、リビング、または子供部屋の周囲に150m³/ hのCADR定格の大風量で素早くお部屋の空気を対流させ、新鮮な空気を広げ、室内の空気質を大幅に改善します。また、26Wの低電力で基本的に消費電力はかかりません。 お休みモードの場合は一時間あたりの電気代0.25円未満で。自宅やオフィスでの長期使用に適しています。</p>
+        <p class="productinfo">・🌿【先端クラスのH13 HEPAフィルター】第一層プレフィルター、第二層活性炭フィルター、第三層H13 HEPAフィルター。 プレフィルターはペットの毛や粗いホコリを99.99%遮断します。高品質なパーソナル静電hepaフィルターは、花粉・ウイルス・細菌・細いホコリ・アレルゲン・カビ・ハウスダスト・PM2.5など、0.1μmまでの微細粒子を97%除去します。梅雨対策に役立つアイテムです。强大的吸力过滤器用于清除灰尘、烟草和食物垃圾的气味。普通のHEPAフィルターより3倍の空気清浄効果あり、ペットを飼っている方、新生児のいる親などに勧めです</p>
+        <p class="productinfo">・🌿【ストレスにならない静かさ】優屋電気独自開発の静音技術と特殊な内部構造で運転音を24㏈以下に抑え、赤ちゃんにもペットにもストレスを感じさせません。また、画面表示オフ機能も搭載され、睡眠時に光に敏感な方は自由に画面表示ライトを消せ、音も光も睡眠の妨げになりません。おやすみモードに入った途端、LEDライトが消灯なり、静音なり、風力は弱になって、よりいい睡眠品質を与えます。</p>
+
+        <p class="castamer-title">カスタマーレビュー(61件)</p>
+
+        <div class="review">
+            <img src="profile1.jpg" alt="プロフィール画像" class="profile-image">
+            <div>
+                <div class="user-info">
+                    <p class="user-name">霞ヶ関 道山</p>
+                    <p class="review-title">コンパクト</p>
+                </div>
+                <div class="rating-and-date">
+                    <div class="rating">
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                    </div>
+                    <p class="post-date">2023年10月23日に投稿</p>
+                </div>
+                <p class="comment">ライトがつくので置いていても部屋になじんで良い感じてす。小さいのに18畳なので凄い。</p>
+            </div>
+        </div>
+
+        <div class="review">
+            <img src="profile1.jpg" alt="プロフィール画像" class="profile-image">
+            <div>
+                <div class="user-info">
+                    <p class="user-name">リオネル・飯</p>
+                    <p class="review-title">シンプルな空気清浄機</p>
+                </div>
+                <div class="rating-and-date">
+                    <div class="rating">
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                    </div>
+                    <p class="post-date">2023年10月23日に投稿</p>
+                </div>
+                <p class="comment">プラズマクラスターとかイオンとか何も有りませんが、空間のホコリを確かに吸い取ってくれます。この値段でこの機能とデザインなので良しとします。</p>
+            </div>
+        </div>
+
+        <div class="review">
+            <img src="profile1.jpg" alt="プロフィール画像" class="profile-image">
+            <div>
+                <div class="user-info">
+                    <p class="user-name">jyp</p>
+                    <p class="review-title">効果あります。</p>
+                </div>
+                <div class="rating-and-date">
+                    <div class="rating">
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                    </div>
+                    <p class="post-date">2023年10月23日に投稿</p>
+                </div>
+                <p class="comment">室内で家族が喫煙の為に購入。
+                    コンパクトサイズを予想していたが、以外と大きめで値段以上の見た目です。
+                    音も静かで、タバコの煙で汚れていた空気が透明に変わりました。
+                    効果はあります。
+                    電源オンにする前に、底の蓋を開けてフィルターのビニール袋を取ってから使用して下さいね。</p>
+            </div>
+        </div>
+
+        <div class="review">
+            <img src="profile3.jpg" alt="プロフィール画像" class="profile-image">
+            <div>
+                <div class="user-info">
+                    <p class="user-name">監督</p>
+                    <p class="review-title">うるさいけど</p>
+                </div>
+                <div class="rating-and-date">
+                    <div class="rating">
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9734;</span>
+                        <span class="star">&#9734;</span>
+                    </div>
+                    <p class="post-date">2023年8月24日に投稿</p>
+                </div>
+                <p class="comment">コスパ的にはアリかなって感じです。
+                    デメリットは五月蠅い事、風量的消費電力を考えると設計ミスってる気もしなくないかな。
+                    lowモード消費電力7W、Highモード26W、Sleepモード3Wです。（簡易ワットチェッカー）
+                    LED虫寄せ機能を使うと上記より2～3W上がります。
+                    風量的には8Wの卓上送風機の方がHighモードより強いかな-フィルターによる圧損と考慮。
+                    ただしHighモードは五月蠅いので室内向きでは無いのでlowモード-精々2畳って感じかな。
+                    ヘビースモーカーなので55Wの大型？使ってたけど、買い替え見直してコレにしました。
+                    イニシャル安いのでコスパ的にありだけど、能力ってか効率悪い気がしなくもない。
+                    24時間365日（メンテ中除く）で使う物なので、色々考慮してコレにしたけど満足って程では無かったです。
+                    60cm離れた場所（定位置）でタバコ吸ったけど、ほぼ吸い切れてない。（吹きかけて）
+                    吸気部分を通り抜けて排気で分散される感じ笑
+                    あまり期待しないで、検討して下さい。（それなりです）</p>
+            </div>
+        </div>
+
+        <div class="review">
+            <img src="profile2.jpg" alt="プロフィール画像" class="profile-image">
+            <div>
+                <div class="user-info">
+                    <p class="user-name">syaan</p>
+                    <p class="review-title">2か月で壊れた</p>
+                </div>
+                <div class="rating-and-date">
+                    <div class="rating">
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9734;</span>
+                        <span class="star">&#9734;</span>
+                        <span class="star">&#9734;</span>
+                    </div>
+                    <p class="post-date">2023年6月18日に投稿</p>
+                </div>
+                <p class="comment">2ヶ月で壊れました。
+                    そこそこの値段するのに最悪です。</p>
+            </div>
+        </div>
+
+        <div class="button-container"> 
+         <a href="checkout3.html" class="button">購入する</a> <!-- 購入ボタン -->
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品一覧</title>
+    <style>
+        body {
+            background-color: #f2f5f7;
+            color: #211e1e;
+            font-family: Arial, sans-serif;
+            text-align: left;
+        }
+
+        h1 {
+            color: #211e1e;
+            text-align: left;
+            font-size: 34px;
+        }
+
+        h2 {
+            color: #211e1e;
+            text-align: left;
+            font-size: 20px;
+        }
+
+        .product {
+            display: flex;
+            align-items: center;
+            text-align: right; /* ボタンを右寄せに設定 */
+            justify-content: space-between; /* 要素をコンテナの両端に配置する */
+        }
+       
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #f1990a;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            font-size: 20px;
+            text-align:center;
+        }
+
+        .button:hover {
+            background-color: #f1990a;
+        }
+
+        .product {
+            display: flex;
+            align-items: center;
+        }
+
+        .product img {
+            margin-right: 20px;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+        }
+
+        .rating span {
+            margin-right: 5px;
+            font-size: 18px;
+            justify-content: left;
+        }
+
+        .fa-star {
+            color: gold;
+        }
+
+        .rating span.star {
+    margin-right: 5px;
+    font-size: 26px;
+    color: gold; /* 星の絵文字を金色に設定 */
+}
+
+
+        .price {
+    font-size: 30px; /* 値段のフォントサイズを24pxに設定 */
+    margin-top: 20px; /* 適切なマージンを設定 */
+    text-align: left;
+}
+
+.product .rating .rating-number {
+    font-size: 28px;
+}
+
+  /* スマートフォン用のスタイル */
+  @media only screen and (max-width: 600px) {
+    body {
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 28px;
+    }
+
+    h2 {
+      font-size: 16px;
+    }
+
+    .product {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .product img {
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+
+    .button {
+      width: 80%;
+    }
+
+    .rating span {
+      font-size: 16px;
+    }
+
+    .price {
+      font-size: 24px;
+      margin-top: 10px;
+    }
+  }
+
+</style>
+
+
+    </style>
+</head>
+
+<body>
+    <h1>商品一覧</h1>
+
+    <section class="product">
+        <p>
+            <img src="product1.jpg" alt="商品1" width="400" height="300">
+        </p>
+        <div>
+            <h2>2023新型 Bluetooth5.3技術】 ワイヤレスイヤホン ブルートゥース イヤホン 小型軽量 Hi-Fi 最大36時間再生 CVC8.0/ENC/AACノイズキャンセリング 瞬時自動ペアリング Type-C充電 片耳/両耳 Siri対応 IPX7防水 タッチ式音量調整 片耳/両耳 iPhone/Android対応</h2>
+            <p class="rating">
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9734;</span>
+                <span class="rating-number">4.1</span>
+            </p>
+            <p class="price">¥24,999</p> <!-- 例: 値段を表示 -->
+        </div>
+            <a href="product1.html" class="button">商品詳細へ</a>
+        
+    </section>
+
+    <!-- 他の商品のセクションも同様に続く -->
+
+    <section class="product">
+        <p>
+            <img src="product2.jpg" alt="商品2" width="400" height="300">
+        </p>
+        <div>
+            <h2>MagSafe充電器 磁気ワイヤレス充電器 マグネット式 マグセーフ充電器 iPhone15/Plus/Pro/Pro Max,iPhone14/Plus/Pro/Pro Max,iPhone13/mini/Pro/Pro Max,iPhone12/mini/Pro/Pro Max,MagSafe対応のAirPods 急速 軽量 超薄型 無線充電器 7.5W/10W/15W Type-C 強力磁気</h2>
+            <p class="rating">
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9734;</span>
+                <span class="rating-number">4.5</span>
+            </p>
+            <p class="price">¥2,999</p> <!-- 例: 値段を表示 -->
+        </div>
+            <a href="product2.html" class="button">商品詳細へ</a>
+    </section>
+
+    <section class="product">
+        <p>
+            <img src="product3.jpg" alt="商品3" width="400" height="300">
+        </p>
+        <div>
+            <h2>ドライヤー【2023年進化モデル】大風量 速乾 超軽量 人気 ランキング 1300W 折り畳み式 携帯ドライヤー マイナスイオン 3段階風量 小型 ノズル付き 過熱防止機能あり 家庭用/サロン用/旅行用 PSE認証済み</h2>
+            <p class="rating">
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="rating-number">4.8</span>
+            </p>
+            <p id="originalPrice" class="price">¥13600</p>
+            <p id="salePrice" class="price"></p>
+        </div>
+            <a href="product3.html" class="button">商品詳細へ</a>
+    </section>
+
+    <section class="product">
+        <p>
+            <img src="product4.jpg" alt="商品4" width="400" height="300">
+        </p>
+        <div>
+            <h2>空気清浄機 【2023新型・強力浄化】18畳対応 軽量 小型 花粉対策 卓上 hepaフィルター 除菌 脱臭 集じん 静音 お手入れやすい タイマー機能 省エネ ナイトライト付き アロマ対応 18畳 タバコ カビ ほこり PM2.5 風量3段階調節 睡眠モード サーキュレーター 空気循環</h2>
+            <p class="rating">
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9733;</span>
+                <span class="star">&#9734;</span>
+                <span class="rating-number">3.9</span>
+            </p>
+            <p class="price">¥3,599</p> <!-- 例: 値段を表示 -->
+        </div>
+            <a href="product4.html" class="button">商品詳細へ</a>
+    </section>
+
+
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+    <script>
+        // 定価とセール価格を定義
+   const originalPrice = 13600;
+   const salePrice = 3680;
+   
+   // 定価の表示を赤色の斜め線で表示
+   const originalPriceElement = document.getElementById('originalPrice');
+   originalPriceElement.style.textDecoration = 'line-through';
+   originalPriceElement.style.color = 'black';
+   
+   // 割引率を計算して表示
+   const discountPercentage = ((originalPrice - salePrice) / originalPrice) * 100;
+   const salePriceElement = document.getElementById('salePrice');
+   salePriceElement.textContent = `セール価格: ¥${salePrice} (${discountPercentage.toFixed(0)}% OFF)`;
+   
+       </script>
+
+</body>
+
+</html>

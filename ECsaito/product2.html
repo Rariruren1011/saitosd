@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品詳細</title>
+    <style>
+        /* スタイルはここに記述 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: auto; /* 上下左右のマージンを自動で設定 */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+        position: relative;
+        top: 50%; /* 上端を中央に配置 */
+        transform: translateY(-50%); /* 自身の高さの半分だけ上に移動 */
+        text-align: center; /* テキストを中央に配置する */
+    }
+
+    .modal-content p:first-of-type {
+        font-size: 35px;
+    }
+
+    .modal-content .button-container {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 2;
+}
+
+    .attention-text {
+        color: red;
+        font-weight: bold;
+        font-size: 28px;
+    }
+
+        .close {
+            color: #010000;
+            float: right;
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        body {
+            background-color: #f2f5f7; /* 背景を設定 */
+            color: #211e1e; /* テキストの色を設定 */
+            font-family: Arial, sans-serif; /* フォントをArialに設定 */
+            text-align: center; /* 中央ぞろえに設定 */
+        }
+
+        h2 {
+            color: #211e1e; /* 見出しの色を白に設定 */
+            text-align: left; /* タイトルを左寄せに設定 */
+            font-size: 34px; /* フォントサイズをに設定 */
+        }
+
+        p {text-align: center; /* 中央ぞろえに設定 */
+            font-weight: bold;
+            font-size: 20px; /* フォントサイズをに設定 */
+        }
+
+        .button{
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #f1990a;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            font-size: 20px; /* フォントサイズを20pxに設定 */
+        }
+
+        .button-container {
+            text-align: right; /* ボタンを右寄せに設定 */
+            position: fixed;
+            right: 20px;
+         bottom: 20px;
+         z-index: 1; /* ボタンが最前面に表示されるようにする */
+        }
+
+        .modal-content-button-container {
+    margin-top: 20px;
+    text-align: right;
+}
+
+        .button:hover {
+            background-color: #f1990a;
+        }
+
+         .rating {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+         font-size: 14px;
+         margin-right: 10px;
+         margin-top: -10px;
+         }
+
+    .review .rating .star {
+    font-size: 20px; /* 好みのサイズに調整してください */
+}
+
+        .rating span {
+            margin-right: 5px;
+            font-size: 12px;
+        }
+
+        .fa-star {
+            color: gold;
+        }
+
+        .rating span.star {
+    margin-right: 5px;
+    font-size: 14px;
+    color: gold; /* 星の絵文字を金色に設定 */
+}
+
+        .price {
+    font-size: 28px; /* 値段のフォントサイズを24pxに設定 */
+    margin-top: 10px; /* 適切なマージンを設定 */
+    text-align: center;
+}
+
+.profile-image {
+    width: 50px; /* プロフィール画像の幅を設定 */
+    height: 50px; /* プロフィール画像の高さを設定 */
+    border-radius: 50%; /* 画像を丸くするための設定 */
+    margin-right: 10px; /* 適切なマージンを設定 */
+    margin-top: 20px; /* プロフィール画像の位置を上に移動 */
+}
+
+.review {
+    margin-bottom: 20px;
+    display: flex;
+    min-height: 100px;
+}
+
+.user-name {
+    font-weight: bold;
+    font-size: 16px;
+    margin-right: 10px;
+    font-weight: normal; 
+    margin-top: 30px;
+}
+
+.reviews {
+    margin-top: 20px;
+}
+
+.comment {
+    font-style: italic;
+    font-size: 16px;
+    text-align: left;
+    font-weight: normal; 
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.review-title {
+    font-weight: bold;
+    font-size: 14px;
+    margin-left: 10px;
+    margin-top: 30px;
+}
+
+.rating-and-date {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.post-date {
+    font-style: italic;
+    font-size: 12px;
+    color: #888;
+    margin-left: 10px;
+    margin-bottom: 0;
+    margin-top: -10px;
+}
+
+.productinfo {
+    font-style: italic;
+    font-size: 18px;
+    text-align: left;
+    font-weight: normal; 
+}
+
+.producttitle {
+    margin-top: 50px; /* 余白を追加 */
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 10px;
+    text-align: left;
+}
+
+.firstrating {
+    font-size: 14px;
+    margin-right: 10px;
+}
+
+.firstrating-number {
+    font-size: 28px;
+    margin-right: 10px;
+}
+
+.main-star {
+    margin-right: 5px;
+    font-size: 28px; 
+    color: gold;
+}
+
+.castamer-title {
+    margin-top: 50px; /* 余白を追加 */
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 10px;
+    text-align: left;
+}
+
+.product {
+    margin-bottom: 100px; /* 適切な余白を設定 */
+}
+
+.masage {
+    margin-top: 50px; /* 余白を追加 */
+}
+
+    </style>
+</head>
+<body>
+    <section class="product">
+        <h2>商品詳細</h2>
+        <p>【購入する】を押すと決済情報確認画面へと移行します。</p>
+        <p class="masage">MagSafe充電器 磁気ワイヤレス充電器 マグネット式 マグセーフ充電器 iPhone15/Plus/Pro/Pro Max,iPhone14/Plus/Pro/Pro Max,iPhone13/mini/Pro/Pro Max,iPhone12/mini/Pro/Pro Max,MagSafe対応のAirPods 急速 軽量 超薄型 無線充電器 7.5W/10W/15W Type-C 強力磁気</p>
+        <p class="firstrating">
+            <span class="main-star">&#9733;</span>
+            <span class="main-star">&#9733;</span>
+            <span class="main-star">&#9733;</span>
+            <span class="main-star">&#9733;</span>
+            <span class="main-star">&#9734;</span>
+            <span class="firstrating-number">4.5</span>
+        </p>
+        <p class="price">¥2,999</p> <!-- 例: 値段を表示 -->
+        <p>
+            <img src="product2.jpg" alt="商品2" width="500" height="300"> 
+        </p> 
+        <p class="producttitle">この商品について</p>
+        <p class="productinfo">・🥇【マグネット式ワイヤレス充電器】この磁気ワイヤレス充電器はMagSafeだけではなく、一般的なワイヤレス充電器としてもご利用いただけます。 (すべてのQi対応のスマホに使用できます) ※ご注意：iPhone15/14/13/12シリーズなどのマグネット対応した機種は直接使用できますが、他のマグネットに対応していないQi機種は磁気リングまたは磁気リング付きのケースに合わせて使用する必要です。</p>
+        <p class="productinfo">・🥇【対応機種】MagSafe充電対応:iPhone15,iPhone15Plus,iPhone15Pro,iPhone15Pro Max,iPhone14,iPhone14Plus,iPhone14Pro,iPhone14Pro Max,iPhone13,iPhone 13mini,iPhone13Pro,iPhone13Pro Max,iPhone12,iPhone12mini, iPhone12Pro,iPhone12Pro Max,AirPods Pro(第2世代),MagSafe充電ケース付きAirPods(第3世代)。他のMagSafe充電対応の機種にも使用できます。また、マグネット機能なしのQiワイヤレス充電対応の機種にも使用できますが、MagSafeリングまたはMagSafeケースを装着する必要です。</p>
+        <p class="productinfo">・🥇【急速充電・安全保護】最大出力は15W、iPhone充電の場合はiPhone自身の制限により出力は7.5Wになります。 この磁気ワイヤレス充電器は、独自のスマート保護技術を搭載しております。温度管理・過充電保護・過電流保護・過熱保護・異物探知機能付き・ショート防止など安全対策を取っています。急速充電中は少し発熱しますが、電量増加と充電速度の安定により、発熱は徐々減っていきます。 安心してご使用いただけます。</p>
+        
+
+<p class="castamer-title">カスタマーレビュー(1,888件)</p>
+
+        <div class="review">
+            <img src="profile1.jpg" alt="プロフィール画像" class="profile-image">
+            <div>
+                <div class="user-info">
+                    <p class="user-name">カスタマー</p>
+                    <p class="review-title">まあまあ</p>
+                </div>
+                <div class="rating-and-date">
+                    <div class="rating">
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                    </div>
+                    <p class="post-date">2023年11月3日に投稿</p>
+                </div>
+                <p class="comment">iPhone15 Pro で使用しています。
+                    問題無く充電できています！
+                    使いやすくて、とても満足です！</p>
+            </div>
+        </div>
+        
+
+        <div class="review">
+            <img src="profile1.jpg" alt="プロフィール画像" class="profile-image">
+            <div>
+                <div class="user-info">
+                    <p class="user-name">カスタマー2</p>
+                    <p class="review-title">磁力が強くカバーを付けたままでも安心</p>
+                </div>
+                <div class="rating-and-date">
+                    <div class="rating">
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                    </div>
+                    <p class="post-date">2023年10月29日に投稿</p>
+                </div>
+                <p class="comment">AndroidからiPhoneへ機種交換して アクセサリーを買う段階で一番先に目に付いたがワイヤレス充電器❗
+                    今までは充電時に一回一回 抜き差ししてた為 差し込み口にギズがついて 終いには差し込み口が甘くなって 抜けてたりしました
+                    しかし この磁気ワイヤレス充電器は磁力が強く 外れる心配が全く無く 大変重宝しております
+                    もちろんカバーを付けたままでも磁力が強いので 外れません
+                    本当に良い製品だと思います</p>
+            </div>
+        </div>
+        
+
+        <div class="review">
+            <img src="profile1.jpg" alt="プロフィール画像" class="profile-image">
+            <div>
+                <div class="user-info">
+                    <p class="user-name">さちこ</p>
+                    <p class="review-title">初めてのMagSafe充電器</p>
+                </div>
+                <div class="rating-and-date">
+                    <div class="rating">
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                    </div>
+                    <p class="post-date">2023年10月30日に投稿</p>
+                </div>
+                <p class="comment">iPhone15で使用中です。問題なく充電できます。いちいち端子を差し込まなくて良いのがいい。</p>
+            </div>
+        </div>
+
+        <div class="review">
+            <img src="profile1.jpg" alt="プロフィール画像" class="profile-image">
+            <div>
+                <div class="user-info">
+                    <p class="user-name">Very Good! Strong magnetic magsafe! Recommend</p>
+                    <p class="review-title">Strong magnetic magsafe</p>
+                </div>
+                <div class="rating-and-date">
+                    <div class="rating">
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                    </div>
+                    <p class="post-date">2023年10月21日に投稿</p>
+                </div>
+                <p class="comment">The magnetic magsafe is strong and fast charge. Recommend</p>
+            </div>
+        </div>
+
+        <div class="review">
+            <img src="profile2.jpg" alt="プロフィール画像" class="profile-image">
+            <div>
+                <div class="user-info">
+                    <p class="user-name">syaan</p>
+                    <p class="review-title">熱が気になる</p>
+                </div>
+                <div class="rating-and-date">
+                    <div class="rating">
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9733;</span>
+                        <span class="star">&#9734;</span>
+                        <span class="star">&#9734;</span>
+                    </div>
+                    <p class="post-date">2023年10月21日に投稿</p>
+                </div>
+                <p class="comment">
+                    気になる点
+                    ・充電時かなり熱を持つ
+magsafe対応ケースと併用して使ってますが、磁力が強くしっかり固定されて使いやすいです。
+初めてMagSafe充電を使ったので他の製品がどうなのかわかりませんが、充電器と本体がかなり熱を持つので電池へのダメージが気になります。
+それ以外は値段も安く良い商品だと思います。</p>
+            </div>
+        </div>
+        
+        <div class="button-container">
+             <a href="#" class="button" onclick="openModal()">購入する</a> <!-- 購入ボタン -->
+             </div>
+    </section>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p class="attention-text">注意！！</p>
+            <img src="ararm2.png" alt="注意喚起2の画像" width="860" height="450">
+            <div class="modal-content-button-container" style="margin-top: 20px;">
+                <a href="checkout4.html" class="button">決済情報確認画面へ</a>
+            </div>
+        </div>
+    </div>
+    
+
+    <script>
+        function openModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "block";
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+    </script>
+</body>
+</html>
